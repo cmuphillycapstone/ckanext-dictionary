@@ -1,0 +1,60 @@
+{% extends "package/read_base.html" %}
+{% import 'macros/form.html' as form %}
+
+{% block primary_content_inner %}
+  <h2 class="hide-heading">{{ _('Groups') }}</h2>
+
+
+
+  {% if c.group_dropdown %}
+    <form method="post" class="form-horizontal">
+      <select id="field-add_group" name="group_added" data-module="autocomplete">
+        {% for option in c.group_dropdown %}
+          <option value="{{ option[0] }}"> {{ option[1] }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit" class="btn btn-primary" title="{{ _('Associate this group with this dataset') }}">{{ _('Add to group') }}</button>
+    </form>
+  {% endif %}
+
+  {% if c.pkg_dict.groups %}
+    <form method="post">
+      {% snippet 'group/snippets/group_list.html', groups=c.pkg_dict.groups %}
+    </form>
+  {% else %}
+    <!--<p class="empty">{{ _('There are no groups associated with this dataset') }}</p>-->
+  {% endif %}
+
+
+
+  <!--<h1 class="empty"> Data Dictionary</h1>-->
+
+  {% if c.pkg_data_dictionary %}
+        <table style="width:100%">
+        <tr>
+        <td><b>Field Name</b></td>
+        <td> <b>Title</b></td>
+        <td> <b>Format</b></td>
+        <td><b>Description</b></td>
+	</tr>
+  {% if c.pkg_data_dictionary %}
+        {% for dictVal in c.pkg_data_dictionary %}
+	{% if dictVal['package_id'] != ''%}
+	<tr>
+	<td> {{dictVal['field_name']}} </td>
+	<td> {{dictVal['title']}} </td>
+        <td> {{dictVal['format']}}  </td>
+	<td> {{dictVal['description']}}  </td>
+	</td>
+	{% endif %}
+        {% endfor %}
+  {% endif %}
+	</table>
+
+
+  {% else %}
+        <p class="empty">{{ _('There is no data dictionary available for this dataset') }}</p>
+  {% endif %}
+
+
+{% endblock %}

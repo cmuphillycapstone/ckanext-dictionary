@@ -1,0 +1,20 @@
+{#
+Adds a block of custom form fields.
+
+extras - The fields to add.
+errors - A dict of errors for the fields.
+limit  - The total number of fields that should be output.
+Example:
+
+  {% snippet 'snippets/custom_data_dict_fields.html', extras=data.extras , errors=errors, limit=3 %}
+
+#}
+<div class="form-actions">
+   {#{% block previous_button %}
+        <button class="btn" name="save" value="go-dataset" type="submit">{{ _('Previous') }}</button>
+      {% endblock %}#}
+ {% block save_button %}
+        <button class="btn btn-primary" type="submit" name="save" value="go-add-dict">{% block save_button_text %}{{ _('Finish') }}{% endblock %}</button>
+      {% endblock %}
+</div>
+

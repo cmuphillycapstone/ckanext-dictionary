@@ -1,0 +1,24 @@
+{%extends "package/edit_base.html" %}
+
+{% set logged_in = true if c.userobj else false %}
+{% set res = c.resource %}
+
+{% block breadcrumb_content_selected %}{% endblock %}
+
+{% block form_title %}{{ _('Edit view') }}{% endblock %}
+
+{% block breadcrumb_content %}
+  {{ super() }}
+  {% if res %}
+      <li{% block breadcrumb_edit_selected %} class="active"{% endblock %}><a href="">{{ _('Edit Dictionary') }}</a></li>
+  {% endif %}
+{% endblock %}
+
+{% block primary_content_inner %}{% snippet 'package/snippets/data_dict_fields.html', data=None, errors=None, error_summary=error_summary, include_metadata=false, pkg_name=package_id, stage=hi, allow_upload=g.ofs_impl and logged_in, dataset_type=dataset_type %}
+{% endblock %}
+
+
+{#{% block secondary_content %}
+  {% snippet 'package/snippets/resource_help.html' %}
+{% endblock %}#}
+

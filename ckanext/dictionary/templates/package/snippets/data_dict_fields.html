@@ -1,0 +1,104 @@
+{% import 'macros/form.html' as form %}
+{% set data = data or {} %}
+{% set errors = errors or {} %}
+
+{% set action = form_action or h.url_for(c.link) %}
+
+<form id="resource-edit" class="dataset-form dataset-resource-form form-horizontal" method="post" action="{{ action }}" data-module="basic-form resource-form" enctype="multipart/form-data">
+{% block package_datadict_fields %}
+  {% block stages %}
+    {# An empty stages variable will not show the stages #}
+    {% if not c.pkg %}
+      {{ h.snippet('package/snippets/stages.html', stages=['complete','complete','active'], pkg_name=pkg_name) }}
+    {% endif %}
+  {% endblock %}
+
+
+  {% block package_metadata_fields_custom %}
+
+<p>
+<div data-module="custom-fields">
+
+<div class="row-fluid" style="text-align:center;font-weight:bold;">
+        <div class="span3">Field Name</div>
+        <div class="span3">Title</div>
+        <div class="span3">Format</div>
+        <div class="span3">Description</div>
+</div>
+
+  {%if c.pkg_data_dictionary%}
+	  {% set data_dict = c.pkg_data_dictionary %}
+	  {% set data_dict = data_dict + [[]]%}
+  {%else%}
+	{%set data_dict = [[],[],[]]%}
+  {%endif%} 
+  {% for extra in data_dict %}
+    {% set index = loop.index0 + (extras|count) %}
+    {% if data_dict[index] %}
+    {% set current_data_dict = data_dict[index] %}
+    {% else %}
+    {% set current_data_dict = {'field_name' :'', 'title':'','description' :'', 'sensitive': '','id':''} %}
+    {%endif%}
+    <div class="control-group control-custom" style="margin:1px;">
+    <div class="row-fluid">
+
+     <div class="span3"><input id="field-{{ index }}" type="text" name="field_{{ index }}" value="{{current_data_dict['field_name']}}" style="width:90%" /></div>
+      <div class="span3"><input id="title-{{ index }}" type="text" name="title_{{ index }}" value="{{current_data_dict['title']}}" style="width:90%" /></div>
+      <div class="span3">
+	<select class="span20" name="format_{{index}}">
+		<option value=""></option>
+		<optgroup label="String">
+			<option value="Default String" {% if current_data_dict['type'] == "Default String" %} selected {% endif %}>Default String</option>
+	                <option value="Email" {% if current_data_dict['type'] == "Email" %} selected {% endif %}>Email</option>
+        	        <option value="URI" {% if current_data_dict['type'] == "URI" %} selected {% endif %}>URI</option>
+                	<option value="Binary" {% if current_data_dict['type'] == "Binary" %} selected {% endif %}>Binary</option>
+	                <option value="UUID" {% if current_data_dict['type'] == "UUID" %} selected {% endif %}>UUID</option>
+		</optgroup>
+		<optgroup label="Number">
+                	<option value="Default Number" {% if current_data_dict['type'] == "Default Number" %} selected {% endif %}>Default Number</option>
+	                <option value="Integer" {% if current_data_dict['type'] == "Integer" %} selected {% endif %}>Integer</option>
+        	        <option value="Currency" {% if current_data_dict['type'] == "Currency" %} selected {% endif %}>Currency</option>
+		</optgroup>
+		<optgroup label="Date/Time">
+	                <option value="ISO8601 Date" {% if current_data_dict['type'] == "ISO8601 Date" %} selected {% endif %}>ISO8601 Date</option>
+			<option value="Other Date" {% if current_data_dict['type'] == "Other Date" %} selected {% endif %}>Other Date</option>
+        	        <option value="Duration" {% if current_data_dict['type'] == "Duration" %} selected {% endif %}>Duration</option>
+		</optgroup>
+		<optgroup label="Other">
+			<option value="Boolean" {% if current_data_dict['type'] == "Boolean" %} selected {% endif %}>Boolean</option>
+			<option value="Geopoint" {% if current_data_dict['type'] == "Geopoint" %} selected {% endif %}>Geopoint</option>
+			<option value="GeoJSON" {% if current_data_dict['type'] == "GeoJSON" %} selected {% endif %}>GeoJSON</option>
+			<option value="TopoJSON" {% if current_data_dict['type'] == "TopoJSON" %} selected {% endif %}>TopoJSON</option>
+			<option value="JSON Object" {% if current_data_dict['type'] == "JSON Object" %} selected {% endif %}>JSON Object</option>
+	                <option value="JSON Array" {% if current_data_dict['type'] == "JSON Array" %} selected {% endif %}>JSON Array</option>
+		</optgroup>
+	</select>
+      </div>
+      <div class="span3"><input id="description-{{ index }}" type="text" name="description_{{ index }}" value="{{current_data_dict['description']}}" style="width:90%" /></div>
+      <div class=""><input id="id-{{ index }}" type="hidden" name="id_{{ index }}" value="{{current_data_dict['id']}}" /></div>
+
+        <!--<label class="checkbox" for="{{ 'remove-%d' % index }}">
+          <input type="checkbox" id="{{ 'remove-%d' % index }}" name="{{ 'remove_%d' % index }}" />
+        </label>-->
+   </div>
+    </div>
+  {% endfor %}
+
+
+
+</div>
+</p>
+
+
+	
+    {% block data_dict_buttons %}
+     {% if c.pkg %}
+      {% snippet 'package/snippets/edit_data_dict_fields.html', extras=data.extras, errors=errors, pkg_name=pkg_name, limit=(c.pkg_data_dictionary|length)+1 %}
+     {% else %}
+	{% snippet 'package/snippets/custom_data_dict_fields.html', extras=data.extras, errors=errors, limit=3 %}
+     {%endif%}
+
+     {% endblock %}
+    {% endblock %}
+  {% endblock %}
+</form>
