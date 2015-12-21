@@ -1,33 +1,3 @@
-.. You should enable this project on travis-ci.org and coveralls.io to make
-   these badges work. The necessary Travis and Coverage config files have been
-   generated for you.
-
-.. image:: https://travis-ci.org//ckanext-dictionary.svg?branch=master
-    :target: https://travis-ci.org//ckanext-dictionary
-
-.. image:: https://coveralls.io/repos//ckanext-dictionary/badge.svg
-  :target: https://coveralls.io/r//ckanext-dictionary
-
-.. image:: https://pypip.in/download/ckanext-dictionary/badge.svg
-    :target: https://pypi.python.org/pypi//ckanext-dictionary/
-    :alt: Downloads
-
-.. image:: https://pypip.in/version/ckanext-dictionary/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-dictionary/
-    :alt: Latest Version
-
-.. image:: https://pypip.in/py_versions/ckanext-dictionary/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-dictionary/
-    :alt: Supported Python versions
-
-.. image:: https://pypip.in/status/ckanext-dictionary/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-dictionary/
-    :alt: Development Status
-
-.. image:: https://pypip.in/license/ckanext-dictionary/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-dictionary/
-    :alt: License
-
 =============
 ckanext-dictionary
 =============
@@ -98,43 +68,7 @@ do::
 Running the Tests
 -----------------
 
-To run the tests, do::
-
-    nosetests --nologcapture --with-pylons=test.ini
-
-To run the tests and produce a coverage report, first make sure you have
-coverage installed in your virtualenv (``pip install coverage``) then run::
-
-    nosetests --nologcapture --with-pylons=test.ini --with-coverage --cover-package=ckanext.dictionary --cover-inclusive --cover-erase --cover-tests
-
-
----------------------------------
-Registering ckanext-dictionary on PyPI
----------------------------------
-
-ckanext-dictionary should be availabe on PyPI as
-https://pypi.python.org/pypi/ckanext-dictionary. If that link doesn't work, then
-you can register the project on PyPI for the first time by following these
-steps:
-
-1. Create a source distribution of the project::
-
-     python setup.py sdist
-
-2. Register the project::
-
-     python setup.py register
-
-3. Upload the source distribution to PyPI::
-
-     python setup.py sdist upload
-
-4. Tag the first release of the project on GitHub with the version number from
-   the ``setup.py`` file. For example if the version number in ``setup.py`` is
-   0.0.1 then do::
-
-       git tag 0.0.1
-       git push --tags
+There are presently no tests included with the extension.
 
 
 ----------------------------------------
