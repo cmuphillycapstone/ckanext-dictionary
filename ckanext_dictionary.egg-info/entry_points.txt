@@ -1,6 +1,0 @@
-
-        [ckan.plugins]
-        dictionary=ckanext.dictionary.plugin:DictionaryPlugin
-	[babel.extractors]
-	ckan = ckan.lib.extract:extract_ckan
-    
