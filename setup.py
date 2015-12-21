@@ -17,11 +17,11 @@ setup(
     # http://packaging.python.org/en/latest/tutorial.html#version
     version='0.0.1',
 
-    description='''A data dictionary or metadata plugin''',
+    description='''A data dictionary (metadata) plugin for CKAN''',
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com//ckanext-dictionary',
+    url='https://github.com/cmuphillycapstone/ckanext-dictionary.git',
 
     # Author details
     author='''CMU MISM capstone 2015''',

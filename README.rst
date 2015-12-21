@@ -64,7 +64,7 @@ Development Installation
 To install ckanext-dictionary for development, activate your CKAN virtualenv and
 do::
 
-    git clone https://github.com//ckanext-dictionary.git
+    git clone https://github.com/cmuphillycapstone/ckanext-dictionary.git
     cd ckanext-dictionary
     python setup.py develop
     pip install -r dev-requirements.txt
