@@ -14,13 +14,16 @@ Users see the data dictionary as another tab for each dataset.
 Since this dictionary extension utilizes the DataStore extension, Data Dictionary information can
 be accessed via API.
 
-.. File:: screenshots/admin-setup.png
+.. image:: screenshots/admin-setup.png
+   :alt: Additional stage added to dataset setup 
 Additional stage added to dataset setup
 
-.. File:: screenshots/admin-edit.png
+.. image:: screenshots/admin-edit.png
+   :alt: Editing data dictionary for a dataset
 Editing data dictionary for a dataset
 
-.. File:: screenshots/user-view.png
+.. image:: screenshots/user-view.png
+   :alt: User view of the data dictionary
 User view of the data dictionary
 
 ------------
