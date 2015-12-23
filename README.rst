@@ -16,22 +16,22 @@ be accessed via API.
 
 .. image:: screenshots/admin-setup.png
    :alt: Additional stage added to dataset setup 
-   :height: 245px
-   :width: 449px
+   :height: 163px
+   :width: 299px
 .. class:: center
 *Additional stage added to dataset setup*
 
 .. image:: screenshots/admin-edit.png
    :alt: Editing data dictionary for a dataset
-   :height: 280px
-   :width: 450px
+   :height: 187px
+   :width: 300px
 .. class:: center
 *Editing data dictionary for a dataset*
 
 .. image:: screenshots/user-view.png
    :alt: User view of the data dictionary
-   :height: 197px
-   :width: 450px
+   :height: 131px
+   :width: 300px
 .. class:: center
 *User view of the data dictionary*
 
