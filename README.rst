@@ -14,24 +14,24 @@ Users see the data dictionary as another tab for each dataset.
 Since this dictionary extension utilizes the DataStore extension, Data Dictionary information can
 be accessed via API.
 
-.. image:: screenshots/admin-setup.png
+.. image:: https://github.com/cmuphillycapstone/ckanext-dictionary/blob/master/screenshots/admin-setup.png
    :alt: Additional stage added to dataset setup 
-   :height: 163px
-   :width: 299px
+   :height: 245px
+   :width: 449px
 .. class:: center
 *Additional stage added to dataset setup*
 
-.. image:: screenshots/admin-edit.png
+.. image:: https://github.com/cmuphillycapstone/ckanext-dictionary/blob/master/screenshots/admin-edit.png
    :alt: Editing data dictionary for a dataset
-   :height: 187px
-   :width: 300px
+   :height: 280px
+   :width: 450px
 .. class:: center
 *Editing data dictionary for a dataset*
 
-.. image:: screenshots/user-view.png
+.. image:: https://github.com/cmuphillycapstone/ckanext-dictionary/blob/master/screenshots/user-view.png
    :alt: User view of the data dictionary
-   :height: 131px
-   :width: 300px
+   :height: 197px
+   :width: 450px
 .. class:: center
 *User view of the data dictionary*
 
